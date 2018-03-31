@@ -40,6 +40,35 @@ class RangeArgumentValidator extends ArgumentValidatorPluginBase {
   /**
    * {@inheritdoc}
    */
+  public function validateOptionsForm(&$form, FormStateInterface $form_state) {
+    $parents = ['options', 'validate', 'options', 'range'];
+    $parents_name = implode($parents, '][');
+    $values = $form_state->getValue($parents);
+
+    if (!empty($values['range_min']) && !is_numeric($values['range_min'])) {
+      $form_state->setErrorByName(
+        $parents_name . '][range_min',
+        t('Minimum value must be a number.')
+      );
+    }
+    elseif (!empty($values['range_max']) && !is_numeric($values['range_max'])) {
+      $form_state->setErrorByName(
+        $parents_name . '][range_max',
+        t('Maximum value must be a number.')
+      );
+    }
+    elseif (is_numeric($values['range_min']) && is_numeric($values['range_max'])
+      && $values['range_min'] > $values['range_max']) {
+      $form_state->setErrorByName(
+        $parents_name . '][range_min',
+        t('Minimum value cannot be greater than Maximum value.')
+      );
+    }
+  }
+
+  /**
+   * {@inheritdoc}
+   */
   public function validateArgument($argument) {
     $options = $this->options;
     if (!empty($options['range_min']) || $options['range_min'] == '0') {
