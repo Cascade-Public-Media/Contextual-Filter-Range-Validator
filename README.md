@@ -16,8 +16,11 @@ page only:
 1. Create a page view with an attachment.
 1. Add a contextual filter to the attachment (*Attachment* -> *Advanced* ->
 *Contextual Filters* -> *Add*)
-1. From the **For** select list at the top of the configuration page, select 
-*This attachment (override)*.
+1. From the "Add contextual filters" popup:
+    - Select "This attachment (override)" from the **For** menu.
+    - Select "Global" from the **Category** menu.
+    - Enable the checkbox for the "Null" filter.
+    - Click **Apply (this display)**.
 1. Under **When the filter value is NOT available**, select *Provide a default
 value* and set the following options:
     - **Type**: Query parameter
@@ -30,6 +33,7 @@ value* and set the following options:
     - **Maximum value**: 0
     - **Action to take if filter value does not validate**: Hide view
 1. Click **Apply (this display)**.
+1. Click **Save** for the full view.
 
 Once this view is saved, the view page should only show the attachment on the 
 first page because this module's validator is set to hide the attachment 
