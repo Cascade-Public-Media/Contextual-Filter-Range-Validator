@@ -21,20 +21,20 @@ class RangeArgumentValidator extends ArgumentValidatorPluginBase {
    * {@inheritdoc}
    */
   public function buildOptionsForm(&$form, FormStateInterface $form_state) {
-    $form['range_min'] = array(
+    $form['range_min'] = [
       '#type' => 'number',
       '#title' => $this->t('Minimum value'),
       '#description' => $this->t('Inclusive. Leave blank for no minimum.'),
       '#default_value' => (isset($this->options['range_min'])
         ? $this->options['range_min'] : ''),
-    );
-    $form['range_max'] = array(
+    ];
+    $form['range_max'] = [
       '#type' => 'number',
       '#title' => $this->t('Maximum value'),
       '#description' => $this->t('Inclusive. Leave blank for no maximum.'),
       '#default_value' => (isset($this->options['range_max'])
         ? $this->options['range_max'] : ''),
-    );
+    ];
   }
 
   /**
@@ -81,17 +81,20 @@ class RangeArgumentValidator extends ArgumentValidatorPluginBase {
     if (is_numeric($argument)) {
       $val = (float)$argument;
       if (isset($min) && isset($max) && $val >= $min && $val <= $max) {
-        return true;
+        return TRUE;
       }
-      elseif (isset($min) && $val >= $min) {
-        return true;
+      elseif (isset($min) && !isset($max) && $val >= $min) {
+        return TRUE;
       }
-      elseif (isset($max) && $val <= $max) {
-        return true;
+      elseif (isset($max) && !isset($min) && $val <= $max) {
+        return TRUE;
+      }
+      elseif (!isset($max) && !isset($min)) {
+        return TRUE;
       }
     }
 
-    return false;
+    return FALSE;
   }
 
 }
