@@ -3,12 +3,12 @@ Contextual Filter Range Validator
 
 ### About
 
-Contextual Filter Range Validator adds a Vies contextual filter validator that 
+Contextual Filter Range Validator adds a Views contextual filter validator that 
 can evaluate a numeric filter value based on user-supplied constraints.
 
 ### Use Cases
 
-#### Hide or show a view attachment based on a `page` URL parameter.
+#### Display a view attachment on the first page of a view only.
 
 The example steps below can be used to display a view attachment on the first
 page only:
@@ -37,7 +37,8 @@ value* and set the following options:
 
 Once this view is saved, the view page should only show the attachment on the 
 first page because this module's validator is set to hide the attachment 
-whenever the `page` URL parameter is not empty (or zero).
+whenever the `page` URL parameter is not empty or zero (the first page/default
+value).
 
 ### Requirements
 
