@@ -72,14 +72,14 @@ class RangeArgumentValidator extends ArgumentValidatorPluginBase {
   public function validateArgument($argument) {
     $options = $this->options;
     if (!empty($options['range_min']) || $options['range_min'] == '0') {
-      $min = (float)$options['range_min'];
+      $min = (float) $options['range_min'];
     }
     if (!empty($options['range_max']) || $options['range_max'] == '0') {
-      $max = (float)$options['range_max'];
+      $max = (float) $options['range_max'];
     }
 
     if (is_numeric($argument)) {
-      $val = (float)$argument;
+      $val = (float) $argument;
       if (isset($min) && isset($max) && $val >= $min && $val <= $max) {
         return TRUE;
       }

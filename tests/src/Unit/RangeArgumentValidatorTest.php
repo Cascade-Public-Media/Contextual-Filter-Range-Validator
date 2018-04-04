@@ -53,12 +53,17 @@ class RangeArgumentValidatorTest extends UnitTestCase {
    * @covers ::validateArgument
    *
    * @param array $settings
+   *   Range validator settings.
+   *
    * @param mixed $argument
+   *   Argument to test.
+   *
    * @param mixed $expected
+   *   Expected result.
    *
    * @dataProvider argumentDataProvider
    */
-  public function testValidateArgument($settings, $argument, $expected) {
+  public function testValidateArgument(array $settings, $argument, $expected) {
     $default_options = [];
     $default_options['access'] = TRUE;
     $default_options['bundles'] = [];
