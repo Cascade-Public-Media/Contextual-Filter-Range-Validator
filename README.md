@@ -1,14 +1,53 @@
 Contextual Filter Range Validator
----------------------------------
+=================================
 
-### About
+CONTENTS OF THIS FILE
+---------------------
+   
+ * Introduction
+ * Requirements
+ * Installation
+ * Configuration
+ * Use Cases
+ * Maintainers
+ * License
 
-Contextual Filter Range Validator adds a Views contextual filter validator that 
+INTRODUCTION
+------------
+
+Contextual Filter Range Validator adds a Views contextual filter validator that
 can evaluate a numeric filter value based on user-supplied constraints.
 
-### Use Cases
+ * For a full description of the module, visit the project page:
+   https://www.drupal.org/project/contextual_filter_range_validator
+   
+ * To submit bug reports and feature suggestions, or to track changes:
+   https://www.drupal.org/project/issues/contextual_filter_range_validator
 
-#### Display a view attachment on the first page of a view only.
+REQUIREMENTS
+------------
+
+No special requirements.
+
+INSTALLATION
+------------
+
+1. Download and uncompress the module manually or via Composer.
+1. Enable the module from `/admin/modules`.
+
+CONFIGURATION
+-------------
+
+The module has no menu or modifiable settings. There is no configuration.
+
+Range validation can be configured on any regular Views contextual filters. See
+**USE CASES** for a detailed example of how to assign validation criteria to a
+filter.
+
+USE CASES
+---------
+
+### Display a view attachment on the first page of a view only.
 
 The example steps below can be used to display a view attachment on the first
 page only:
@@ -40,17 +79,21 @@ first page because this module's validator is set to hide the attachment
 whenever the `page` URL parameter is not empty or zero (the first page/default
 value).
 
-### Requirements
+MAINTAINERS
+-----------
 
-- Views (core)
+Current maintainers:
+ * Christopher Charbonneau Wells (wells) - https://www.drupal.org/u/wells
 
-### Installation
+This project is sponsored by:
+ * [Cascade Public Media](https://www.drupal.org/cascade-public-media) for 
+ [KCTS9.org](https://kcts9.org/) and [Crosscut.com](https://crosscut.com/).
+ 
+LICENSE
+-------
 
-1. Download and uncompress the module manually or via Composer.
-1. Enable the module from `/admin/modules`.
+All code in this repository is licensed 
+[GPLv2](http://www.gnu.org/licenses/gpl-2.0.html). A LICENSE file is not 
+included in this repository per Drupal's module packing specifications.
 
-### Sponsorship
-
-Development of Contextual Filter Range Validator is supported by 
-[Cascade Public Media](https://www.drupal.org/cascade-public-media)
-for [KCTS9.org](https://kcts9.org/) and [Crosscut.com](https://crosscut.com/).
+See [Licensing on Drupal.org](https://www.drupal.org/about/licensing).
